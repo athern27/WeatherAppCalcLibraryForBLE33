@@ -56,7 +56,7 @@ void weatherCalcForBLE33::calculate() {
     * 
     *  //////////// using Magnus-Tetens equation  \\\\\\\\\\\\\\\\\\
                                           17.62 T                                7.4
-       Ps = e(t) f(p); e(t) = 611.2 exp ----------; f(p) = 1.0016 + 3.15e-8  P - ---; P = [Pa]; T = [캜]
+       Ps = e(t) f(p); e(t) = 611.2 exp ----------; f(p) = 1.0016 + 3.15e-8  P - ---; P = [Pa]; T = [째C]
                                         243.12 + T                                P
 
     */
@@ -77,7 +77,7 @@ void weatherCalcForBLE33::calculate() {
 
     /* Absolute humidity in g/m^3
                 P(H2O)               
-       AH = -----------; Rv = 461.5e-3 ; P = [Pa]; T = [캜]
+       AH = -----------; Rv = 461.5e-3 ; P = [Pa]; T = [째C]
             Rv.(273.15 + t)
     */
     ha = ppw;
@@ -86,7 +86,7 @@ void weatherCalcForBLE33::calculate() {
 
     /* Effective temperature (perceived)
                         
-       Teff = t + 3.78e-3.Pw.RH - 4.25; Teff, t = [캜]; Pw = [Pa]; 0 < RH < 1
+       Teff = t + 3.78e-3.Pw.RH - 4.25; Teff, t = [째C]; Pw = [Pa]; 0 < RH < 1
     */
     te = ppw;
     te *= TEFF_M;
@@ -95,7 +95,7 @@ void weatherCalcForBLE33::calculate() {
 
     /* Altitude from pressure, meters
                    Po
-       h = C T ln ----; C = 29.256; T = [K] = 273.15 + t[캜]
+       h = C T ln ----; C = 29.256; T = [K] = 273.15 + t[째C]
                    Px
     */
     hp = PRESS_NORMAL;
